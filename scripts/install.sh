@@ -17,7 +17,8 @@ output_error="Pootle ERROR: "
 output_ok="Pootle OK: "
 output_end=""
 
-# Install packages
+# Update apt & install packages
+sudo apt update
 sudo apt-get install build-essential libxml2-dev libxslt-dev python-dev python-pip zlib1g-dev postgresql-server-dev-9.5 python-virtualenv
 sudo -H pip install virtualenv psycopg2
 
