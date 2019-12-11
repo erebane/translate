@@ -1,30 +1,3 @@
-# https://docs.weblate.org/en/latest/admin/install/venv-debian.html#installation
-#
-
-# System requirements
-sudo apt install \
-   libxml2-dev libxslt-dev libfreetype6-dev libjpeg-dev libz-dev libyaml-dev \
-   libcairo-dev gir1.2-pango-1.0 libgirepository1.0-dev libacl1-dev libssl-dev \
-   build-essential python3-gdbm python3-dev python3-pip python3-virtualenv virtualenv git
-
-# optional dependencies
-sudo apt install tesseract-ocr libtesseract-dev libleptonica-dev
-
-# Web server option 1: NGINX and uWSGI
-sudo apt install nginx uwsgi uwsgi-plugin-python3
-
-# Web server option 2: Apache with ``mod_wsgi``
-#apt install apache2 libapache2-mod-wsgi
-
-# Caching backend: Redis
-sudo apt install redis-server
-
-# Database server: PostgreSQL
-sudo apt install postgresql
-
-# SMTP server
-sudo apt install exim4
-
 # Create the virtualenv for Weblate:
 virtualenv --python=python3 ~/weblate-env
 
