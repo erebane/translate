@@ -39,8 +39,8 @@ db_password=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 15 | head -n 1) ||
 desc='Set postgresql password for user weblate'
 sudo -u postgres psql -a -U postgres -d postgres -c "ALTER USER weblate WITH PASSWORD '"$db_password"'" || fail "desc"
 
-desc='Create db pootle'
+desc='Create db weblate'
 sudo su postgres -c "createdb --encoding='utf8' --locale=en_US.utf8 --template=template0 --owner=weblate weblate" || fail "desc"
 
-desc='Install virtualenv as user pootle'
+desc='Install virtualenv as user weblate'
 sudo su translate -c '/opt/translate/scripts/install-weblate-user-weblate.sh '$db_password
