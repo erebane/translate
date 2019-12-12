@@ -45,7 +45,7 @@ DATABASES = {
         # Database user, not used with sqlite3.
         "USER": "weblate",
         # Database password, not used with sqlite3.
-        "PASSWORD": "",
+        "PASSWORD": "<weblate-postgres-password>",
         # Set to empty string for localhost. Not used with sqlite3.
         "HOST": "127.0.0.1",
         # Set to empty string for default. Not used with sqlite3.
@@ -200,7 +200,7 @@ TEMPLATES = [
 
 # GitHub username for sending pull requests.
 # Please see the documentation for more details.
-GITHUB_USERNAME = erebane
+GITHUB_USERNAME = None
 
 # GitLab username for sending merge requests.
 # Please see the documentation for more details.
@@ -736,7 +736,7 @@ SERVER_EMAIL = "noreply@example.com"
 DEFAULT_FROM_EMAIL = "noreply@example.com"
 
 # List of URLs your site is supposed to serve
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['10.24.0.74']
 
 # Configuration for caching
 CACHES = {
