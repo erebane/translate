@@ -736,7 +736,7 @@ SERVER_EMAIL = "noreply@example.com"
 DEFAULT_FROM_EMAIL = "noreply@example.com"
 
 # List of URLs your site is supposed to serve
-ALLOWED_HOSTS = ['10.24.0.74']
+ALLOWED_HOSTS = ['10.24.0.74', 'weblate']
 
 # Configuration for caching
 CACHES = {
