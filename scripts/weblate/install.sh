@@ -41,5 +41,5 @@ sudo -u postgres psql -a -U postgres -d postgres -c "ALTER USER weblate WITH PAS
 desc='Create db weblate'
 sudo su postgres -c "createdb --encoding='utf8' --locale=en_US.utf8 --template=template0 --owner=weblate weblate" || fail "desc"
 
-desc='Install weblate as user cn=translate,ou=app,dc=hajaan,dc=nu'
-sudo su translate -c '/home/human/erebane/translate/scripts/weblate/install-user-weblate.sh '$db_password || fail "desc"
+desc='Install weblate as user cn=weblate,ou=app,dc=hajaan,dc=nu'
+sudo su weblate -c '/home/human/erebane/translate/scripts/weblate/install-user-weblate.sh '$db_password || fail "desc"
