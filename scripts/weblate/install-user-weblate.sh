@@ -16,7 +16,7 @@ desc='Install database driver'
 pip install psycopg2-binary || fail "$desc"
 
 desc='Install wanted optional dependencies depending on features you intend to use'
-pip install django-auth-ldap>=1.3.0 tesserocr dogslow || fail "$desc"
+pip install django-auth-ldap tesserocr dogslow || fail "$desc"
 
 desc='Config symlink to erebane home'
 cp /home/human/erebane/translate/configs/weblate/settings.py ~/weblate-env/lib/python3.6/site-packages/weblate/settings.py || fail "$desc"
