@@ -208,7 +208,7 @@ GITLAB_USERNAME = None
 
 # Authentication configuration
 AUTHENTICATION_BACKENDS = (
-    "social_core.backends.email.EmailAuth",
+    # "social_core.backends.email.EmailAuth",
     # 'social_core.backends.google.GoogleOAuth2',
     # 'social_core.backends.github.GithubOAuth2',
     # 'social_core.backends.bitbucket.BitbucketOAuth',
@@ -216,8 +216,29 @@ AUTHENTICATION_BACKENDS = (
     # 'social_core.backends.ubuntu.UbuntuOpenId',
     # 'social_core.backends.fedora.FedoraOpenId',
     # 'social_core.backends.facebook.FacebookOAuth2',
+    'django_auth_ldap.backend.LDAPBackend',
     "weblate.accounts.auth.WeblateUserBackend",
 )
+# LDAP server address
+AUTH_LDAP_SERVER_URI = 'ldap://ldap.hajaan.nu'
+
+import ldap
+from django_auth_ldap.config import LDAPSearch
+
+AUTH_LDAP_USER_SEARCH = LDAPSearch("ou=human,dc=hajaan,dc=nu",
+    ldap.SCOPE_SUBTREE, "(uid=%(user)s)")
+
+# List of attributes to import from LDAP upon login
+# Weblate stores full name of the user in the full_name attribute
+AUTH_LDAP_USER_ATTR_MAP = {
+    # 'full_name': 'name',
+    # Use the following if your LDAP server does not have full name
+    # Weblate will merge them later
+    'first_name': 'givenName',
+    'last_name': 'sn',
+    # Email is required for Weblate (used in VCS commits)
+    'email': 'mail',
+}
 
 # Custom user model
 AUTH_USER_MODEL = "weblate_auth.User"
@@ -318,7 +339,7 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 # Allow new user registrations
-REGISTRATION_OPEN = True
+REGISTRATION_OPEN = False
 
 # Middleware
 MIDDLEWARE = [
